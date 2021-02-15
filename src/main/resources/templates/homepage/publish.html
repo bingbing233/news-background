@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Material Design Lite</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        body {
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+
+        .news_form {
+            width: 1000px;
+
+        }
+
+        form {
+            margin: 20px;
+        }
+
+        #submit_btn {
+            position: fixed;
+            display: block;
+            right: 0;
+            bottom: 0;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            z-index: 900;
+        }
+
+        #add_pic_btn {
+            margin: 20px;
+            width: 1000px;
+            height: 200px;
+        }
+
+        i {
+            color: grey;
+        }
+
+        .dropdown {
+            width: 100px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">发布新闻</span>
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+                    <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" id="search">
+                    <label class="mdl-textfield__label" for="search">Enter your query...</label>
+                </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+                <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+                <li class="mdl-menu__item">About</li>
+                <li class="mdl-menu__item">Contact</li>
+                <li class="mdl-menu__item">Legal information</li>
+            </ul>
+        </div>
+    </header>
+    <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+        <header class="demo-drawer-header">
+            <img src="images/user.jpg" class="demo-avatar">
+            <div class="demo-avatar-dropdown">
+                <span>hello@example.com</span>
+                <div class="mdl-layout-spacer"></div>
+                <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                    <i class="material-icons" role="presentation">arrow_drop_down</i>
+                    <span class="visuallyhidden">Accounts</span>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+                    <li class="mdl-menu__item">hello@example.com</li>
+                    <li class="mdl-menu__item">info@example.com</li>
+                    <li class="mdl-menu__item"><i class="material-icons">add</i>Add another account...</li>
+                </ul>
+            </div>
+        </header>
+        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+            <a class="mdl-navigation__link" href="/index"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
+            <a class="mdl-navigation__link" href="/publish"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">add</i>发布新闻</a>
+            <a class="mdl-navigation__link" href="/news"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">list</i>新闻列表</a>
+            <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>Spam</a>
+            <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Forums</a>
+            <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Updates</a>
+            <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Promos</a>
+            <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">shopping_cart</i>Purchases</a>
+            <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Social</a>
+            <div class="mdl-layout-spacer"></div>
+
+        </nav>
+    </div>
+    <main class="mdl-layout__content mdl-color--grey-100">
+        <div class="mdl-grid demo-content">
+
+            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+
+                <form action="#" method="post" th:action="@{/publish}" th:object="${news}">
+                    <!-- 选择文件的input -->
+                    <input type="file" style="display: none" id="addfile-btn" onchange="showImg(this)">
+                    <!-- 添加新闻头图 -->
+                    <button class="mdl-button mdl-js-button" id="add_pic_btn" onclick="addfile()">
+                        <i class="material-icons md-18" id="add_pic_icon" style="font-size: 48px;">add_to_photos</i>
+                    </button>
+
+
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="source_input" th:field="*{newsSource}">
+                            <label class="mdl-textfield__label" for="source_input">新闻来源</label>
+                        </div>
+
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label dropdown">
+                        <select class="mdl-textfield__input" id="column" name="column">
+                            <option value="栏目1">栏目1</option>
+                            <option value="栏目2">栏目2</option>
+                            <option value="栏目3">栏目3</option>
+                            <option value="栏目4">栏目4</option>
+                        </select>
+                        <label class="mdl-textfield__label" for="column">选择栏目</label>
+                    </div>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label dropdown">
+                        <select class="mdl-textfield__input" id="format" name="format">
+                            <option value="版式1">版式1</option>
+                            <option value="版式2">版式2</option>
+                            <option value="版式3">版式3</option>
+                            <option value="版式4">版式4</option>
+                        </select>
+                        <label class="mdl-textfield__label" for="format">选择版式</label>
+                    </div>
+
+                    <!-- 新闻标题 -->
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label news_form ">
+                            <input class="mdl-textfield__input news_form" type="text" id="title_input" th:field="*{newsTitle}" th:value="${news.newsTitle}">
+                            <label class="mdl-textfield__label" for="title_input">新闻标题...</label>
+                        </div>
+
+
+                    <!-- 新闻简介 -->
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label news_form">
+                            <textarea class="mdl-textfield__input news_form" type="text" rows="10" id="sum_input" th:field="*{newsSum}" th:value="${news.newsSum}"></textarea>
+                            <label class="mdl-textfield__label" for="sum_input">新闻简介...</label>
+                        </div>
+
+
+                    <!-- 新闻内容 -->
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label news_form">
+                            <textarea class="mdl-textfield__input news_form" type="text" rows="15" id="content_input" th:field="*{newsContent}" th:value="${news.newsContent}"></textarea>
+                            <label class="mdl-textfield__label" for="content_input">新闻内容...</label>
+                        </div>
+
+
+                    <!-- 提交按钮 -->
+                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--primary mdl-button--raised " id="submit_btn" type="submit">
+                        <i class="material-icons" style="color: white;">done</i>
+                    </button>
+                </form>
+
+                <!--提示信息，snackbar-->
+                <div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar">
+                    <div class="mdl-snackbar__text"></div>
+                    <button class="mdl-snackbar__action" type="button" onclick="onSubmit()"></button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script>
+
+    function showImg(input) {
+        //var file = input.files[0];
+        //var url = window.URL.createObjectURL(file)
+        //alert(url);
+        console.log("url")
+        //document.getElementById('add_pic_btn').style.backgroundImage = 'url(\'' + url + '\')'
+        //document.getElementById('add_pic_btn').style.backgroundImage = 'url(\' https://yscoder.github.io/MaterialImage/\\\')'
+    }
+
+    function addfile() {
+        document.getElementById("addfile-btn").click();
+    }
+
+    function onSubmit(){
+        document.getElementById('source_input').value = ''
+        document.getElementById('title_input').value = ''
+        document.getElementById('sum_input').value = ''
+        document.getElementById('content_input').value = ''
+    }
+
+    (function() {
+        'use strict';
+        var snackbarContainer = document.querySelector('#demo-snackbar-example');
+        var showSnackbarButton = document.querySelector('#submit_btn');
+        var handler = function(event) {
+            showSnackbarButton.style.backgroundColor = '';
+        };
+        showSnackbarButton.addEventListener('click', function() {
+            'use strict';
+            showSnackbarButton.style.backgroundColor = '#' +
+                Math.floor(Math.random() * 0xFFFFFF).toString(16);
+            var data = {
+                message: '添加成功',
+                timeout: 2000,
+                actionHandler: handler,
+                actionText: '好的'
+            };
+            snackbarContainer.MaterialSnackbar.showSnackbar(data);
+        });
+    }());
+</script>
+
+
+
+
+</body>
+
+</html>

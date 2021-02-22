@@ -112,4 +112,13 @@ public class News  {
     public void setOrderId(Integer orderId) {
         this.orderId = orderId;
     }
+
+    @Override
+    public String toString() {
+        return "News{" +
+                "newsTitle='" + newsTitle + '\'' +
+                ", newsSum='" + newsSum + '\'' +
+                ", newsContent='" + newsContent + '\'' +
+                '}';
+    }
 }

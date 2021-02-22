@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.news.mapper.AdminMapper">
+    <select id="findAdmin" resultType="com.example.news.dao.Admin">
+        select * from admin where admin_name = #{adminName}
+    </select>
+
+    <select id="findAllAdmin" resultType="com.example.news.dao.Admin">
+        select * from admin
+    </select>
+
+    <insert id="addAdmin" parameterType="com.example.news.dao.Admin">
+        insert into admin (admin_name, admin_contact, admin_password) values (#{adminName},#{adminContact},#{adminPassword})
+    </insert>
+
+</mapper>

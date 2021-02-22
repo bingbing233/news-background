@@ -8,11 +8,11 @@ spring:
     static-path-pattern: /**
 
   thymeleaf:
-    prefix: classpath:/templates/
-    suffix: .html
     servlet:
       content-type: text/html
     encoding: UTF-8
+    suffix: .html
+    prefix: classpath:/templates/
 
 #  resources:
 #    static-locations: classpath:/static/
@@ -22,5 +22,4 @@ mybatis:
   type-aliases-package: com.example.news.dao
   configuration:
     map-underscore-to-camel-case: true
-server:
-  port: 8080
+

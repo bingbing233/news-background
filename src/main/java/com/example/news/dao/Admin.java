@@ -2,7 +2,7 @@ package com.example.news.dao;
 
 import java.io.Serializable;
 
-public class Admin implements Serializable {
+public class Admin  {
     private Integer adminId;
     private String adminName;
     private String adminContact;

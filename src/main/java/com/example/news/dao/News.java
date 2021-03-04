@@ -12,9 +12,7 @@ public class News  {
     private Integer newsFormatId;//版式id
     private Integer columnId;//栏目id
     private Integer newsCreatorId;//创建者id
-    private Integer stateId;//状态id
     private Integer publicStateId;//发布状态id
-    private Integer orderId;//顺序id
 
 
     public Integer getNewsId() {
@@ -89,14 +87,6 @@ public class News  {
         this.newsCreatorId = newsCreatorId;
     }
 
-    public Integer getStateId() {
-        return stateId;
-    }
-
-    public void setStateId(Integer stateId) {
-        this.stateId = stateId;
-    }
-
     public Integer getPublicStateId() {
         return publicStateId;
     }
@@ -105,20 +95,19 @@ public class News  {
         this.publicStateId = publicStateId;
     }
 
-    public Integer getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Integer orderId) {
-        this.orderId = orderId;
-    }
-
     @Override
     public String toString() {
         return "News{" +
-                "newsTitle='" + newsTitle + '\'' +
+                "newsId=" + newsId +
+                ", newsTitle='" + newsTitle + '\'' +
                 ", newsSum='" + newsSum + '\'' +
+                ", newsSource='" + newsSource + '\'' +
+                ", publicTime='" + publicTime + '\'' +
                 ", newsContent='" + newsContent + '\'' +
+                ", newsFormatId=" + newsFormatId +
+                ", columnId=" + columnId +
+                ", newsCreatorId=" + newsCreatorId +
+                ", publicStateId=" + publicStateId +
                 '}';
     }
 }

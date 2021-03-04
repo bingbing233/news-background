@@ -108,7 +108,6 @@
         </nav>
     </div>
     <main class="mdl-layout__content mdl-color--grey-100">
-
         <div class="mdl-grid demo-content" th:each="news,iterStat:${newsList}">
         <form action="#" th:action="@{/news}" th:object="${news}">
             <div class="demo-card-wide mdl-card mdl-shadow--2dp">

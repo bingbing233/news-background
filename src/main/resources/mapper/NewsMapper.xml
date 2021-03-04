@@ -21,9 +21,9 @@
 
     <insert id="insertNews" parameterType="com.example.news.dao.News">
         insert into news (news_title, news_sum, news_source, public_time, news_content, news_format_id, colume_id,
-                          news_creator_id, state_id, public_state_id, order_id)
+                          news_creator_id, public_state_id)
         values (#{newsTitle},#{newsSum},#{newsSource},#{publicTime},#{newsContent},
-                #{newsFormatId},#{columnId},#{newsCreatorId},#{stateId},#{publicStateId},#{orderId})
+                #{newsFormatId},#{columnId},#{newsCreatorId},#{publicStateId})
     </insert>
 
 </mapper>

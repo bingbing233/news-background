@@ -13,7 +13,9 @@ public interface AdminMapper {
 
     void addAdmin(Admin admin);
 
-    Admin findAdmin(@Param("name") String name);
+    Admin findAdmin(String name);
+
+    void deleteAdmin(String name);
 
     List<Admin> findAllAdmin();
 

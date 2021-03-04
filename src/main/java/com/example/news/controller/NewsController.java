@@ -36,25 +36,4 @@ public class NewsController {
         return "homepage/news";
     }
 
-
-/*    @PostMapping("/newsUpload")
-    public String  newsUpload(){
-        List<News> news = newsMapper.findAllNews();
-        for (News temp:news){
-            temp.save(new SaveListener() {
-                @Override
-                public void onSuccess(String s, String s1) {
-                    System.out.println("上传数据成功！");
-                }
-
-                @Override
-                public void onFailure(BmobException e) {
-                    System.out.println("上传数据失败！");
-                    System.out.println(e.toString());
-                }
-            });
-        }
-        return "homepage/news";
-    }*/
-
 }

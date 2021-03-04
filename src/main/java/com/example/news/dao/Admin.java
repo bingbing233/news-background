@@ -8,6 +8,16 @@ public class Admin  {
     private String adminContact;
     private String adminPassword;
 
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "adminId=" + adminId +
+                ", adminName='" + adminName + '\'' +
+                ", adminContact='" + adminContact + '\'' +
+                ", adminPassword='" + adminPassword + '\'' +
+                '}';
+    }
+
     public Integer getAdminId() {
         return adminId;
     }

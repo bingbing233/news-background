@@ -45,9 +45,7 @@ public class AddNewsController {
 //        如果标题已存在，则更新新闻，否则插入新闻
         news.setPublicTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").
                 format(System.currentTimeMillis()));
-        news.setNewsCreatorId(1);
-        news.setStateId(1);
-        news.setOrderId(1);
+        news.setNewsCreatorId(null);
         news.setPublicStateId(1);
         news.setColumnId(1);
         news.setNewsFormatId(1);

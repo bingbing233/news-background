@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -18,7 +19,14 @@ public class AdminListController {
     public String adminList(Model model){
         List<Admin> adminList = adminMapper.findAllAdmin();
         model.addAttribute("adminList",adminList);
-        System.out.println(adminList.toString());
+        return "x-admin/admin-list";
+    }
+
+    @GetMapping("/adminDelete")
+    public String adminDelete(@RequestParam (value = "adminName") String adminName,Model model){
+        adminMapper.deleteAdmin(adminName);
+        List<Admin> adminList = adminMapper.findAllAdmin();
+        model.addAttribute("adminList",adminList);
         return "x-admin/admin-list";
     }
 }

@@ -13,4 +13,7 @@
         insert into admin (admin_name, admin_contact, admin_password) values (#{adminName},#{adminContact},#{adminPassword})
     </insert>
 
+    <delete id="deleteAdmin" >
+        delete from admin where admin_name =  #{admin_name}
+    </delete>
 </mapper>

@@ -12,7 +12,7 @@
 
 
     <delete id="deleteNews">
-        delete from news where news_title = #{newsTitle}
+        delete from news where news_id = #{newsId}
     </delete>
 
     <update id="updateNews" parameterType="com.example.news.dao.News">

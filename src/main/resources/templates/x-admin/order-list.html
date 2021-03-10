@@ -58,12 +58,13 @@
                             <th>
                                 <input type="checkbox" name="" lay-skin="primary">
                             </th>
+                            <th>新闻id</th>
                             <th>新闻标题</th>
                             <th>新闻概要</th>
                             <th>栏目</th>
                             <th>作者</th>
                             <th>来源</th>
-                            <th>审核人</th>
+                            <th>审核状态</th>
                             <th>创建时间</th>
                             <th>操作</th>
                         </tr>
@@ -73,18 +74,23 @@
                         <tr th:each="news,iterStat:${newsList}">
                             <td>
                                 <input type="checkbox" name="" lay-skin="primary"></td>
+                            <td th:text="${news.getNewsId()}">这里是id</td>
                             <td th:text="${news.getNewsTitle()}">这里是标题</td>
                             <td th:text="${news.getNewsSum()}">这里是概要</td>
-                            <td th:text="${news.getColumnId()}">这里是栏目</td>
-                            <td th:text="${news.getNewsCreatorId()}">这里是作者</td>
+                            <td th:text="${news.getColumn()}">这里是栏目</td>
+                            <td th:text="${news.getNewsCreator()}">这里是作者</td>
                             <td th:text="${news.getNewsSource()}">这里是来源</td>
-                            <td th:text="${news.publicStateId}">这里是审核人</td>
+                            <td th:text="${news.publicState}">这里是审核状态</td>
                             <td th:text="${news.getPublicTime()}">这里是发布时间</td>
                             <td class="td-manage">
                                 <a title="查看" th:href="${'/newsDetail?newsTitle='+news.newsTitle}">
                                     <i class="layui-icon">&#xe63c;</i></a>
-                                <a title="删除" th:href="${'/deleteNews?title='+news.getNewsTitle()}"><!--onclick="member_del(this,'要的id')" href="javascript:;"-->
+                                <a title="删除" th:href="${'/deleteNews?id='+news.getNewsId()}"><!--onclick="member_del(this,'要的id')" href="javascript:;"-->
                                     <i class="layui-icon">&#xe640;</i></a>
+                                <a title="通过审核" th:href="${'/approveNews?id='+news.getNewsId()}">
+                                    <i class="layui-icon">&#xe605;</i></a>
+                                <a title="未通过审核" th:href="${'/approveNews?id='+news.getNewsId()}">
+                                    <i class="layui-icon">&#x1006;</i></a>
                             </td>
                         </tr>
                         </tbody>

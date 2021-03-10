@@ -9,11 +9,17 @@ public class News  {
     private String newsSource;//来源
     private String publicTime;//发布时间
     private String newsContent;//新闻内容
-    private Integer newsFormatId;//版式id
-    private Integer columnId;//栏目id
-    private Integer newsCreatorId;//创建者id
-    private Integer publicStateId;//发布状态id
+    private String column;//栏目id
+    private String newsCreator;//创建者id
+    private String publicState;//发布状态id
 
+    public void setColumn(String column) {
+        this.column = column;
+    }
+
+    public void setNewsCreator(String newsCreator) {
+        this.newsCreator = newsCreator;
+    }
 
     public Integer getNewsId() {
         return newsId;
@@ -63,51 +69,20 @@ public class News  {
         this.newsContent = newsContent;
     }
 
-    public Integer getNewsFormatId() {
-        return newsFormatId;
+    public String getPublicState() {
+        return publicState;
     }
 
-    public void setNewsFormatId(Integer newsFormatId) {
-        this.newsFormatId = newsFormatId;
+    public void setPublicState(String publicState) {
+        this.publicState = publicState;
     }
 
-    public Integer getColumnId() {
-        return columnId;
+    public String getColumn() {
+        return column;
     }
 
-    public void setColumnId(Integer columnId) {
-        this.columnId = columnId;
+    public String getNewsCreator() {
+        return newsCreator;
     }
 
-    public Integer getNewsCreatorId() {
-        return newsCreatorId;
-    }
-
-    public void setNewsCreatorId(Integer newsCreatorId) {
-        this.newsCreatorId = newsCreatorId;
-    }
-
-    public Integer getPublicStateId() {
-        return publicStateId;
-    }
-
-    public void setPublicStateId(Integer publicStateId) {
-        this.publicStateId = publicStateId;
-    }
-
-    @Override
-    public String toString() {
-        return "News{" +
-                "newsId=" + newsId +
-                ", newsTitle='" + newsTitle + '\'' +
-                ", newsSum='" + newsSum + '\'' +
-                ", newsSource='" + newsSource + '\'' +
-                ", publicTime='" + publicTime + '\'' +
-                ", newsContent='" + newsContent + '\'' +
-                ", newsFormatId=" + newsFormatId +
-                ", columnId=" + columnId +
-                ", newsCreatorId=" + newsCreatorId +
-                ", publicStateId=" + publicStateId +
-                '}';
-    }
 }

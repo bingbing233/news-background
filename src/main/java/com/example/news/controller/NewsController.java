@@ -25,12 +25,8 @@ public class NewsController {
     }
 
     @GetMapping("/newsDelete")
-    public String newsDelete(@RequestParam(value = "newsTitle")String title,Model model){
-        if(title!=null){
-            News temp = new News();
-            temp.setNewsTitle(title);
-            newsMapper.deleteNews(temp.getNewsTitle());
-        }
+    public String newsDelete(@RequestParam(value = "newsTitle")int  id
+            ,Model model){
         List<News> newsList = newsMapper.findAllNews();
         model.addAttribute("newsList",newsList);
         return "homepage/news";

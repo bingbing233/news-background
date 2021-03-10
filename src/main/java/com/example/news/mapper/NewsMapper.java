@@ -15,8 +15,12 @@ public interface NewsMapper {
 
     void insertNews(News news);
 
-    void deleteNews(String title);
+    void deleteNews(int id);
 
     void updateNews(News news);
+
+    void approveNews(int id);
+
+    void disapproveNews(int id);
 }
 

@@ -2,18 +2,16 @@ package com.example.news.controller;
 
 import com.example.news.dao.News;
 import com.example.news.mapper.NewsMapper;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 @Controller
-public class OrderListController {
+public class NewsListController {
     @Autowired
     NewsMapper newsMapper;
 
@@ -22,7 +20,7 @@ public class OrderListController {
     public String orderList(Model model){
         List<News> newsList = newsMapper.findAllNews();
         model.addAttribute("newsList",newsList);
-        return "x-admin/order-list";
+        return "x-admin/news-list";
     }
 
     //删除新闻
@@ -31,7 +29,7 @@ public class OrderListController {
         newsMapper.deleteNews(id);
         List<News> newsList = newsMapper.findAllNews();
         model.addAttribute("newsList",newsList);
-        return "x-admin/order-list";
+        return "x-admin/news-list";
     }
 
     //通过审核
@@ -40,7 +38,7 @@ public class OrderListController {
         newsMapper.approveNews(id);
         List<News> newsList = newsMapper.findAllNews();
         model.addAttribute("newsList",newsList);
-        return "x-admin/order-list";
+        return "x-admin/news-list";
 
     }
 
@@ -50,7 +48,7 @@ public class OrderListController {
         newsMapper.disapproveNews(id);
         List<News> newsList = newsMapper.findAllNews();
         model.addAttribute("newsList",newsList);
-        return "x-admin/order-list";
+        return "x-admin/news-list";
     }
 
 }

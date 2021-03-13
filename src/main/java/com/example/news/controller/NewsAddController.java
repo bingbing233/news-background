@@ -12,23 +12,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.text.SimpleDateFormat;
 
 @Controller
-public class OrderAddController {
+public class NewsAddController {
     @Autowired
     NewsMapper newsMapper;
 
-    @GetMapping("/orderAdd")
+    @GetMapping("/newsShow")
     public String orderAdd(Model model){
         model.addAttribute("news",new News());
-        return "x-admin/order-add";
+        return "x-admin/news-add";
     }
 
-    @PostMapping("/addNews")
+    @PostMapping("/newsAdd")
     public String addNews(@ModelAttribute News news){
         news.setNewsPublicTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(System.currentTimeMillis()));
         news.setNewsCreator("张三");
         news.setNewsPublicState("未通过");
         newsMapper.insertNews(news);
         System.out.println(news.toString());
-        return "x-admin/order-add";
+        return "x-admin/news-add";
     }
 }

@@ -20,19 +20,14 @@
 <body>
 <div class="layui-fluid">
     <div class="layui-row">
-        <form class="layui-form" action="#" th:action="@{/addNews}" method="post" th:object="${news}">
+        <form class="layui-form" action="#" th:action="@{/newsAdd}" method="post" th:object="${news}">
             <div class="layui-form-item">
                 <label for="title" class="layui-form-label">
                     <span class="x-red">*</span>新闻标题</label>
                 <div class="layui-input-inline">
                     <input type="text" id="title" name="title" required="" lay-verify="required" autocomplete="off" class="layui-input" th:field="*{newsTitle}"></div>
             </div>
-            <div class="layui-form-item">
-                <label for="sum" class="layui-form-label">
-                    <span class="x-red">*</span>新闻简介</label>
-                <div class="layui-input-inline">
-                    <input type="text" id="sum" name="username" required="" lay-verify="required" autocomplete="off" class="layui-input" th:field="*{newsSum}"></div>
-            </div>
+
 
             <div class="layui-form-item">
                 <label class="layui-form-label">新闻栏目</label>
@@ -47,7 +42,7 @@
                         <option value="国内">国内</option>
                         <option value="科技">科技</option>
                         <option value="汽车">汽车</option>
-                        <option value="国际">国i际</option>
+                        <option value="国际">国际</option>
                     </select>
                 </div>
             </div>
@@ -61,6 +56,14 @@
                 <label for="source" class="layui-form-label">新闻作者</label>
                 <div class="layui-input-inline">
                     <input type="text" id="creator" name="username" required="" lay-verify="required" autocomplete="off" class="layui-input" th:field="*{newsCreator}"></div>
+            </div>
+
+            <div class="layui-form-item">
+                <label for="sum" class="layui-form-label">
+                    <span class="x-red">*</span>新闻简介</label>
+                <div class="layui-input-block">
+                    <textarea placeholder="请输入内容" id="sum" name="desc" class="layui-textarea" th:field="*{newsSum}"></textarea>
+                </div>
             </div>
 
             <div class="layui-form-item layui-form-text">

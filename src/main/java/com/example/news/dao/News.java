@@ -7,14 +7,14 @@ public class News  {
     private String newsTitle;//标题
     private String newsSum;//简介
     private String newsSource;//来源
-    private String publicTime;//发布时间
+    private String newsPublicTime;//发布时间
     private String newsContent;//新闻内容
-    private String column;//栏目id
+    private String newsColumn;//栏目id
     private String newsCreator;//创建者id
-    private String publicState;//发布状态id
+    private String newsPublicState;//发布状态id
 
-    public void setColumn(String column) {
-        this.column = column;
+    public void setNewsColumn(String newsColumn) {
+        this.newsColumn = newsColumn;
     }
 
     public void setNewsCreator(String newsCreator) {
@@ -53,12 +53,12 @@ public class News  {
         this.newsSource = newsSource;
     }
 
-    public String getPublicTime() {
-        return publicTime;
+    public String getNewsPublicTime() {
+        return newsPublicTime;
     }
 
-    public void setPublicTime(String publicTime) {
-        this.publicTime = publicTime;
+    public void setNewsPublicTime(String newsPublicTime) {
+        this.newsPublicTime = newsPublicTime;
     }
 
     public String getNewsContent() {
@@ -69,16 +69,16 @@ public class News  {
         this.newsContent = newsContent;
     }
 
-    public String getPublicState() {
-        return publicState;
+    public String getNewsPublicState() {
+        return newsPublicState;
     }
 
-    public void setPublicState(String publicState) {
-        this.publicState = publicState;
+    public void setNewsPublicState(String newsPublicState) {
+        this.newsPublicState = newsPublicState;
     }
 
-    public String getColumn() {
-        return column;
+    public String getNewsColumn() {
+        return newsColumn;
     }
 
     public String getNewsCreator() {

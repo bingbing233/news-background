@@ -44,9 +44,6 @@
                     </form>
                 </div>
                 <div class="layui-card-header">
-                    <button class="layui-btn layui-btn-danger" onclick="delAll()">
-                        <i class="layui-icon"></i>批量删除
-                    </button>
                     <button class="layui-btn" onclick="xadmin.open('添加用户','./orderAdd',800,600)">
                         <i class="layui-icon"></i>添加
                     </button>
@@ -55,10 +52,6 @@
                     <table class="layui-table layui-form">
                         <thead>
                         <tr>
-                            <th>
-                                <input type="checkbox" name="" lay-skin="primary">
-                            </th>
-                            <th>新闻id</th>
                             <th>新闻标题</th>
                             <th>新闻概要</th>
                             <th>栏目</th>
@@ -72,16 +65,13 @@
                         <tbody>
                         <!--实际数据-->
                         <tr th:each="news,iterStat:${newsList}">
-                            <td>
-                                <input type="checkbox" name="" lay-skin="primary"></td>
-                            <td th:text="${news.getNewsId()}">这里是id</td>
                             <td th:text="${news.getNewsTitle()}">这里是标题</td>
                             <td th:text="${news.getNewsSum()}">这里是概要</td>
-                            <td th:text="${news.getColumn()}">这里是栏目</td>
+                            <td th:text="${news.getNewsColumn()}">这里是栏目</td>
                             <td th:text="${news.getNewsCreator()}">这里是作者</td>
                             <td th:text="${news.getNewsSource()}">这里是来源</td>
-                            <td th:text="${news.publicState}">这里是审核状态</td>
-                            <td th:text="${news.getPublicTime()}">这里是发布时间</td>
+                            <td th:text="${news.getNewsPublicState()}">这里是审核状态</td>
+                            <td th:text="${news.getNewsPublicTime()}">这里是发布时间</td>
                             <td class="td-manage">
                                 <a title="查看" th:href="${'/newsDetail?newsTitle='+news.newsTitle}">
                                     <i class="layui-icon">&#xe63c;</i></a>
@@ -89,7 +79,7 @@
                                     <i class="layui-icon">&#xe640;</i></a>
                                 <a title="通过审核" th:href="${'/approveNews?id='+news.getNewsId()}">
                                     <i class="layui-icon">&#xe605;</i></a>
-                                <a title="未通过审核" th:href="${'/approveNews?id='+news.getNewsId()}">
+                                <a title="未通过审核" th:href="${'/disapproveNews?id='+news.getNewsId()}">
                                     <i class="layui-icon">&#x1006;</i></a>
                             </td>
                         </tr>

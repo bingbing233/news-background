@@ -24,10 +24,9 @@ public class OrderAddController {
 
     @PostMapping("/addNews")
     public String addNews(@ModelAttribute News news){
-        news.setPublicTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(System.currentTimeMillis()));
+        news.setNewsPublicTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(System.currentTimeMillis()));
         news.setNewsCreator("张三");
-        news.setPublicState("未通过");
-        news.setColumn("推荐");
+        news.setNewsPublicState("未通过");
         newsMapper.insertNews(news);
         System.out.println(news.toString());
         return "x-admin/order-add";

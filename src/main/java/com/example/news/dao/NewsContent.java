@@ -3,7 +3,7 @@ package com.example.news.dao;
 public class NewsContent {
     private int newsContentId;
     private int newsId;
-    private String newsContent;
+    private String newsContentText;
     private String newsPicUrl;
 
     public int getNewsContentId() {
@@ -22,12 +22,12 @@ public class NewsContent {
         this.newsId = newsId;
     }
 
-    public String getNewsContent() {
-        return newsContent;
+    public String getNewsContentText() {
+        return newsContentText;
     }
 
-    public void setNewsContent(String newsContent) {
-        this.newsContent = newsContent;
+    public void setNewsContentText(String newsContentText) {
+        this.newsContentText = newsContentText;
     }
 
     public String getNewsPicUrl() {
@@ -36,5 +36,15 @@ public class NewsContent {
 
     public void setNewsPicUrl(String newsPicUrl) {
         this.newsPicUrl = newsPicUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "NewsContent{" +
+                "newsContentId=" + newsContentId +
+                ", newsId=" + newsId +
+                ", newsContent='" + newsContentText + '\'' +
+                ", newsPicUrl='" + newsPicUrl + '\'' +
+                '}';
     }
 }

@@ -1,6 +1,7 @@
 package com.example.news.controller;
 
 import com.example.news.dao.News;
+import com.example.news.dao.NewsContent;
 import com.example.news.mapper.NewsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,7 +29,6 @@ public class NewsAddController {
         news.setNewsCreator("张三");
         news.setNewsPublicState("未通过");
         newsMapper.insertNews(news);
-        System.out.println(news.toString());
         return "x-admin/news-add";
     }
 }

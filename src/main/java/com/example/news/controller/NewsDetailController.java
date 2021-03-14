@@ -15,11 +15,11 @@ public class NewsDetailController {
     NewsMapper newsMapper;
 
     @GetMapping("/newsDetail")
-    public String newsDetail(@RequestParam(value = "newsTitle") String title,
+    public String newsDetail(@RequestParam(value = "newsId") int id,
                              Model model){
         News temp = new News();
-        temp.setNewsTitle(title);
-        News result = newsMapper.findNewsByTitle(temp);
+        temp.setNewsId(id);
+        News result = newsMapper.findNewsById(temp);
         model.addAttribute(result);
         return "newsDetail/newsDetail";
     }

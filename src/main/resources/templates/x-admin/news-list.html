@@ -73,7 +73,7 @@
                             <td th:text="${news.getNewsPublicState()}">这里是审核状态</td>
                             <td th:text="${news.getNewsPublicTime()}">这里是发布时间</td>
                             <td class="td-manage">
-                                <a title="查看" th:href="${'/newsDetail?newsTitle='+news.newsTitle}">
+                                <a title="查看" th:href="${'/newsDetail?newsId='+news.getNewsId()}">
                                     <i class="layui-icon">&#xe63c;</i></a>
                                 <a title="删除" th:href="${'/deleteNews?id='+news.getNewsId()}"><!--onclick="member_del(this,'要的id')" href="javascript:;"-->
                                     <i class="layui-icon">&#xe640;</i></a>

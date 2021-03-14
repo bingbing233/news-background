@@ -11,7 +11,7 @@ public interface NewsMapper {
 
     List<News> findAllNews();
 
-    News findNewsByTitle(News news);
+    News findNewsById(News news);
 
     void insertNews(News news);
 

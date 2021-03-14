@@ -7,8 +7,8 @@
         select * from News
     </select>
     <!--查找新闻-->
-    <select id="findNewsByTitle" resultType="com.example.news.dao.News" >
-        select * from News where news_title = #{newsTitle}
+    <select id="findNewsById" resultType="com.example.news.dao.News" >
+        select * from News where news_id = #{newsId}
     </select>
 
     <!--删除新闻-->
@@ -23,9 +23,9 @@
     <!--插入新闻-->
     <insert id="insertNews" parameterType="com.example.news.dao.News">
         insert into news (news_title, news_sum, news_source, news_public_time, news_content, news_column,
-                          news_creator, news_public_state)
+                          news_creator, news_public_state,news_pic_url)
         values (#{newsTitle},#{newsSum},#{newsSource},#{newsPublicTime},#{newsContent},
-                #{newsColumn},#{newsCreator},#{newsPublicState})
+                #{newsColumn},#{newsCreator},#{newsPublicState},#{newsPicUrl})
     </insert>
 
     <!--审核通过-->

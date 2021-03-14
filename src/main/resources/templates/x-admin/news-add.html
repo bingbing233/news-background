@@ -72,11 +72,17 @@
                     <textarea placeholder="请输入内容" id="desc" name="desc" class="layui-textarea" th:field="*{newsContent}"></textarea>
                 </div>
             </div>
+
+            <div class="layui-form-item">
+                <label for="pic_url" class="layui-form-label">图片链接</label>
+                <div class="layui-input-inline">
+                    <input type="text" id="pic_url" name="username" required="" lay-verify="required" autocomplete="off" class="layui-input" th:field="*{newsPicUrl}"></div>
+            </div>
+
             <div class="layui-form-item" type="submit">
                 <label  class="layui-form-label" ></label>
                 <button class="layui-btn" lay-filter="add"  type="submit">增加</button><!--lay-submit=""-->
             </div>
-
         </form>
     </div>
 </div>

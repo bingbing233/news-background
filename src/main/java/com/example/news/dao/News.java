@@ -12,6 +12,15 @@ public class News  {
     private String newsColumn;//栏目id
     private String newsCreator;//创建者id
     private String newsPublicState;//发布状态id
+    private String newsPicUrl;
+
+    public String getNewsPicUrl() {
+        return newsPicUrl;
+    }
+
+    public void setNewsPicUrl(String newsPicUrl) {
+        this.newsPicUrl = newsPicUrl;
+    }
 
     public void setNewsColumn(String newsColumn) {
         this.newsColumn = newsColumn;

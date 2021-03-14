@@ -1,11 +1,15 @@
 create table admin
 (
-    admin_id       int default 0 not null
-        primary key,
-    admin_name     varchar(50)   null,
-    admin_contact  varchar(50)   null,
-    admin_password varchar(50)   null
+    admin_id       int auto_increment,
+    admin_name     varchar(50) null,
+    admin_contact  varchar(50) null,
+    admin_password varchar(50) null,
+    constraint admin_admin_id_uindex
+        unique (admin_id)
 );
+
+alter table admin
+    add primary key (admin_id);
 
 create table apartment
 (
@@ -58,15 +62,19 @@ create table news
     news_column       varchar(20)    null,
     news_creator      varchar(20)    not null,
     news_public_state varchar(20)    not null,
-    constraint news_news_id_uindex
-        unique (news_id)
+    news_pic_url      varchar(200)   null,
 );
 
-create table news_state
+create table news_content
 (
-    news_id    int not null,
-    news_state int null
-);
+    news_content_id   int auto_increment,
+    news_id           int            not null,
+    news_content_text varchar(10000) null,
+    news_pic_url      varchar(200)   null,
+    constraint news_content_news_content_id_uindex
+        unique (news_content_id)
+)
+    comment '用于记录新闻对应内容和图片url';
 
 create table permission
 (
@@ -83,21 +91,12 @@ create table permission_authority
     emp_id        int null
 );
 
-create table pic
-(
-    pic_id   int default 0 not null
-        primary key,
-    pic_des  varchar(50)   null,
-    news_id  int default 0 not null,
-    pic_path varchar(50)   null,
-    pic_type int default 0 not null
-);
-
 create table public_state
 (
-    public_state_id   int default 0 not null
-        primary key,
-    public_state_name varchar(50)   null
+    public_state_id   int auto_increment,
+    public_state_name varchar(50) null,
+    constraint public_state_public_state_id_uindex
+        unique (public_state_id)
 );
 
 create table review_record

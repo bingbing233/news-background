@@ -4,11 +4,11 @@
 
     <!--查找全部新闻-->
     <select id="findAllNews" resultType="com.example.news.dao.News">
-        select * from News
+        select * from news
     </select>
     <!--查找新闻-->
     <select id="findNewsById" resultType="com.example.news.dao.News" >
-        select * from News where news_id = #{newsId}
+        select * from news where news_id = #{newsId}
     </select>
 
     <!--删除新闻-->

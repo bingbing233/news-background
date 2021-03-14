@@ -49,21 +49,18 @@ create table employee
 
 create table news
 (
-    news_id      int auto_increment,
-    news_title   varchar(50)    not null,
-    news_sum     varchar(200)   null,
-    news_source  varchar(30)    null,
-    public_time  datetime       null,
-    news_content varchar(10000) not null,
-    `column`     varchar(20)    null,
-    news_creator varchar(20)    not null,
-    public_state varchar(20)    not null,
+    news_id           int auto_increment,
+    news_title        varchar(50)    not null,
+    news_sum          varchar(200)   null,
+    news_source       varchar(30)    null,
+    news_public_time  datetime       null,
+    news_content      varchar(10000) not null,
+    news_column       varchar(20)    null,
+    news_creator      varchar(20)    not null,
+    news_public_state varchar(20)    not null,
     constraint news_news_id_uindex
         unique (news_id)
 );
-
-alter table news
-    add primary key (news_id);
 
 create table news_state
 (

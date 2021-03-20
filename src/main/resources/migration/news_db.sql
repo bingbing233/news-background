@@ -62,7 +62,7 @@ create table news
     news_column       varchar(20)    null,
     news_creator      varchar(20)    not null,
     news_public_state varchar(20)    not null,
-    news_pic_url      varchar(200)   null,
+    news_pic_url      varchar(200)   null
 );
 
 create table news_content

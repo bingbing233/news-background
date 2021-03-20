@@ -94,4 +94,19 @@ public class News  {
         return newsCreator;
     }
 
+    @Override
+    public String toString() {
+        return "News{" +
+                "newsId=" + newsId +
+                ", newsTitle='" + newsTitle + '\'' +
+                ", newsSum='" + newsSum + '\'' +
+                ", newsSource='" + newsSource + '\'' +
+                ", newsPublicTime='" + newsPublicTime + '\'' +
+                ", newsContent='" + newsContent + '\'' +
+                ", newsColumn='" + newsColumn + '\'' +
+                ", newsCreator='" + newsCreator + '\'' +
+                ", newsPublicState='" + newsPublicState + '\'' +
+                ", newsPicUrl='" + newsPicUrl + '\'' +
+                '}';
+    }
 }

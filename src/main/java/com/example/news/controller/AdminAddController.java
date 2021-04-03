@@ -23,7 +23,7 @@ public class AdminAddController {
     @PostMapping("/addAdmin")
     public String addAdmin(@ModelAttribute Admin admin){
         //查询需要注册的用户名，如果用户名已存在，注册失败
-        if(adminMapper.findAdmin(admin.getAdminName())==null){
+        if(adminMapper.findAdminByName(admin.getAdminName())==null){
             adminMapper.addAdmin(admin);
             System.out.println(admin);
         }

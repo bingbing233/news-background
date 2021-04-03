@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.news.mapper.NewsMapper">
-
     <!--查找全部新闻-->
     <select id="findAllNews" resultType="com.example.news.dao.News">
         select * from news
@@ -11,6 +10,11 @@
         select * from news where news_id = #{newsId}
     </select>
 
+    <!--模糊查询-->
+    <select id="findNewsFuzzyByTitle" resultType="com.example.news.dao.News">
+        select * from news where news_title like '%${title}%'
+    </select>
+
     <!--删除新闻-->
     <delete id="deleteNews">
         delete from news where news_id = #{newsId}
@@ -18,7 +22,9 @@
 
     <!--更新新闻-->
     <update id="updateNews" parameterType="com.example.news.dao.News">
-        update news set news_title = #{newsTitle},news_sum = #{newsSum},news_source = #{newsSource},news_content = #{newsContent} where news_title = #{newsTitle}
+        update news set news_title = #{newsTitle},news_sum = #{newsSum},news_source = #{newsSource},news_content = #{newsContent},
+                        news_column = #{newsColumn},news_creator = #{newsCreator}
+        where news_id = #{newsId}
     </update>
     <!--插入新闻-->
     <insert id="insertNews" parameterType="com.example.news.dao.News">
@@ -30,12 +36,12 @@
 
     <!--审核通过-->
     <insert id="approveNews" >
-        update news set news_public_state = "通过" where news_id = #{newsId}
+        update news set news_public_state = '通过' where news_id = #{newsId}
     </insert>
 
     <!--审核未通过-->
     <insert id="disapproveNews" >
-        update news set news_public_state = "未通过" where news_id = #{newsId}
+        update news set news_public_state = '未通过' where news_id = #{newsId}
     </insert>
 
 </mapper>

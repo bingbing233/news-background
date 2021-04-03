@@ -13,10 +13,14 @@ public interface AdminMapper {
 
     void addAdmin(Admin admin);
 
-    Admin findAdmin(String name);
+    Admin findAdminByName(String name);
+
+    Admin findAdminById(int id);
 
     void deleteAdmin(String name);
 
     List<Admin> findAllAdmin();
+
+    void updateAdmin(Admin admin);
 
 }

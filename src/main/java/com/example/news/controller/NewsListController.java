@@ -15,11 +15,19 @@ public class NewsListController {
     @Autowired
     NewsMapper newsMapper;
 
-    //展示新闻
-    @GetMapping("/orderList")
+    //查询全部新闻
+    @GetMapping("/newsList")
     public String orderList(Model model){
         List<News> newsList = newsMapper.findAllNews();
         model.addAttribute("newsList",newsList);
+        return "x-admin/news-list";
+    }
+
+    //模糊查询新闻
+    @GetMapping("/findNewsFuzzyByTitle")
+    public String findNewsFuzzyByTitle(@RequestParam(value = "title")String title, Model model){
+        List<News> newsList = newsMapper.findNewsFuzzyByTitle(title);
+        model.addAttribute(newsList);
         return "x-admin/news-list";
     }
 
@@ -49,6 +57,13 @@ public class NewsListController {
         List<News> newsList = newsMapper.findAllNews();
         model.addAttribute("newsList",newsList);
         return "x-admin/news-list";
+    }
+
+    @GetMapping("/updateNews")
+    public String updateNews(@RequestParam(value = "id")int id, Model model){
+        News news =  newsMapper.findNewsById(id);
+        model.addAttribute(news);
+        return "x-admin/news-update";
     }
 
 }

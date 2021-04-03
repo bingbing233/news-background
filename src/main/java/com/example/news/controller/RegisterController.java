@@ -25,11 +25,11 @@ public class RegisterController {
     @PostMapping("/register")
     public String registerSubmit(@ModelAttribute Admin admin){
         //查询需要注册的用户名，如果用户名已存在，注册失败
-        if(adminMapper.findAdmin(admin.getAdminName())==null){
+        if(adminMapper.findAdminByName(admin.getAdminName())==null){
             adminMapper.addAdmin(admin);
             return "login/login";
         }
-        System.out.println(adminMapper.findAdmin(admin.getAdminName()).getAdminName());
+        System.out.println(adminMapper.findAdminByName(admin.getAdminName()).getAdminName());
         return "login/register";
     }
 

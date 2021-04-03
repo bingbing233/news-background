@@ -1,12 +1,11 @@
 package com.example.news.dao;
 
-import java.io.Serializable;
-
 public class Admin  {
     private Integer adminId;
     private String adminName;
     private String adminContact;
     private String adminPassword;
+    private String adminType;
 
     @Override
     public String toString() {
@@ -16,6 +15,14 @@ public class Admin  {
                 ", adminContact='" + adminContact + '\'' +
                 ", adminPassword='" + adminPassword + '\'' +
                 '}';
+    }
+
+    public String getAdminType() {
+        return adminType;
+    }
+
+    public void setAdminType(String adminType) {
+        this.adminType = adminType;
     }
 
     public Integer getAdminId() {

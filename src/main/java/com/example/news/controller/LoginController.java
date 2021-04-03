@@ -25,7 +25,7 @@ public class LoginController {
     @PostMapping("/login")
     public String loginPost(@ModelAttribute Admin admin,Model model){
         //判断密码是否正确，正确跳转到index，否则跳回login
-        if(adminMapper.findAdmin(admin.getAdminName()).getAdminPassword().equals(admin.getAdminPassword())){
+        if(adminMapper.findAdminByName(admin.getAdminName()).getAdminPassword().equals(admin.getAdminPassword())){
             model.addAttribute("admin",admin);
             return "x-admin/index";
         }

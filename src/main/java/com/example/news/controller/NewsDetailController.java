@@ -17,9 +17,7 @@ public class NewsDetailController {
     @GetMapping("/newsDetail")
     public String newsDetail(@RequestParam(value = "newsId") int id,
                              Model model){
-        News temp = new News();
-        temp.setNewsId(id);
-        News result = newsMapper.findNewsById(temp);
+        News result = newsMapper.findNewsById(id);
         model.addAttribute(result);
         return "newsDetail/newsDetail";
     }

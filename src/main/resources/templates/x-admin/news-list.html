@@ -75,6 +75,8 @@
                             <td class="td-manage">
                                 <a title="查看" th:href="${'/newsDetail?newsId='+news.getNewsId()}">
                                     <i class="layui-icon">&#xe63c;</i></a>
+                                <a title="修改" th:href="${'/updateNews?id='+news.getNewsId()}">
+                                    <i class="layui-icon">&#xe642;</i></a>
                                 <a title="删除" th:href="${'/deleteNews?id='+news.getNewsId()}"><!--onclick="member_del(this,'要的id')" href="javascript:;"-->
                                     <i class="layui-icon">&#xe640;</i></a>
                                 <a title="通过审核" th:href="${'/approveNews?id='+news.getNewsId()}">

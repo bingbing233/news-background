@@ -11,7 +11,10 @@ public interface NewsMapper {
 
     List<News> findAllNews();
 
-    News findNewsById(News news);
+    News findNewsById(int id);
+
+    //模糊查询
+    List<News> findNewsFuzzyByTitle(String title);
 
     void insertNews(News news);
 
@@ -22,5 +25,7 @@ public interface NewsMapper {
     void approveNews(int id);
 
     void disapproveNews(int id);
+
+
 }
 

@@ -29,4 +29,13 @@ public class AdminListController {
         model.addAttribute("adminList",adminList);
         return "x-admin/admin-list";
     }
+
+    @GetMapping("/adminUpdate")
+    public String adminUpdate(@RequestParam(value = "adminId") int adminId, Model model ){
+        Admin admin = adminMapper.findAdminById(adminId);
+        System.out.println(admin.toString());
+        model.addAttribute(admin);
+        return "x-admin/admin-update";
+
+    }
 }

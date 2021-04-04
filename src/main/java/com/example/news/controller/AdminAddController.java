@@ -21,12 +21,13 @@ public class AdminAddController {
     }
 
     @PostMapping("/addAdmin")
-    public String addAdmin(@ModelAttribute Admin admin){
+    public String addAdmin(@ModelAttribute Admin admin) throws Exception {
         //查询需要注册的用户名，如果用户名已存在，注册失败
         if(adminMapper.findAdminByName(admin.getAdminName())==null){
             adminMapper.addAdmin(admin);
-            System.out.println(admin);
-        }
+        }else{
+            System.out.println("已存在相同管理员，添加失败");
+            }
         return "x-admin/admin-add";
     }
 }

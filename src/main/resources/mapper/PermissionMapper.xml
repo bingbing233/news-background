@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.news.mapper.PermissionMapper">
+
+    <!--查找全部权限-->
+    <select id="findAllPermission" resultType="com.example.news.dao.Permission">
+       select * from permission
+   </select>
+
+    <select id="findPermissionByName" resultType="com.example.news.dao.Permission">
+        select * from permission where permission_name = #{name}
+    </select>
+
+    <!--添加权限-->
+    <insert id="addPermission" parameterType="com.example.news.dao.Permission">
+        insert into permission (permission_name, permission_des, permission_rule)
+        values (#{permissionName},#{permissionDes},#{permissionRule})
+    </insert>
+
+    <delete id="deletePermission">
+        delete from permission where permission_id = #{id}
+    </delete>
+</mapper>

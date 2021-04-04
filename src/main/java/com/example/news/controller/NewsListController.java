@@ -24,8 +24,8 @@ public class NewsListController {
     }
 
     //模糊查询新闻
-    @GetMapping("/findNewsFuzzyByTitle")
-    public String findNewsFuzzyByTitle(@RequestParam(value = "title")String title, Model model){
+    @GetMapping("/searchNews")
+    public String searchNews(@RequestParam(value = "title")String title, Model model){
         List<News> newsList = newsMapper.findNewsFuzzyByTitle(title);
         model.addAttribute(newsList);
         return "x-admin/news-list";

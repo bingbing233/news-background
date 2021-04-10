@@ -34,8 +34,8 @@ create table colume
         unique (colume_id)
 );
 
-alter table colume
-    add primary key (colume_id);
+alter table `column`
+    add primary key (column_id);
 
 create table employee
 (

@@ -32,73 +32,37 @@
         <div class="layui-col-md12">
             <div class="layui-card">
                 <div class="layui-card-body ">
-                    <form class="layui-form layui-col-space5" action="#" th:action="@{/searchNews}" th:object="${news}">
+                    <form class="layui-form layui-col-space5" action="#" th:action="@{/addColumn}" th:object="${column}">
                         <div class="layui-input-inline layui-show-xs-block">
-                            <input type="text" name="username" placeholder="请输入标题关键字" autocomplete="off"
-                                   class="layui-input" th:field="*{newsTitle}"></div>
+                            <input type="text" name="username" placeholder="请输入栏目名" autocomplete="off"
+                                   class="layui-input" th:field="*{columnName}"></div>
                         <div class="layui-input-inline layui-show-xs-block">
-                            <button class="layui-btn" lay-submit="" lay-filter="sreach" type="submit">
-                                <i class="layui-icon"></i></button>
+                            <button class="layui-btn" lay-submit="" lay-filter="search" type="submit">
+                                <i class="layui-icon">增加栏目</i></button>
                         </div>
                     </form>
-                </div>
-                <div class="layui-card-header">
-                    <button class="layui-btn" onclick="xadmin.open('添加新闻','./newsShow',800,600)">
-                        <i class="layui-icon"></i>添加新闻
-                    </button>
-
                 </div>
                 <div class="layui-card-body ">
                     <table class="layui-table layui-form">
                         <thead>
                         <tr>
-                            <th>新闻标题</th>
-                            <th>新闻概要</th>
-                            <th>栏目</th>
-                            <th>作者</th>
-                            <th>来源</th>
-                            <th>审核状态</th>
-                            <th>创建时间</th>
+                            <th>栏目id</th>
+                            <th>栏目名称</th>
                             <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <!--实际数据-->
-                        <tr th:each="news,iterStat:${newsList}">
-                            <td th:text="${news.getNewsTitle()}">这里是标题</td>
-                            <td th:text="${news.getNewsSum()}">这里是概要</td>
-                            <td th:text="${news.getNewsColumn()}">这里是栏目</td>
-                            <td th:text="${news.getNewsCreator()}">这里是作者</td>
-                            <td th:text="${news.getNewsSource()}">这里是来源</td>
-                            <td th:text="${news.getNewsPublicState()}">这里是审核状态</td>
-                            <td th:text="${news.getNewsPublicTime()}">这里是发布时间</td>
+                        <tr th:each="column,iterStat:${columnList}">
+                            <td th:text="${column.columnId}">这里是栏目id</td>
+                            <td th:text="${column.columnName}">这里是概要</td>
                             <td class="td-manage">
-                                <a title="查看" th:href="${'/newsDetail?newsId='+news.getNewsId()}">
-                                    <i class="layui-icon">&#xe63c;</i></a>
-                                <a title="修改" th:href="${'/updateNews?id='+news.getNewsId()}">
-                                    <i class="layui-icon">&#xe642;</i></a>
-                                <a title="删除" th:href="${'/deleteNews?id='+news.getNewsId()}"><!--onclick="member_del(this,'要的id')" href="javascript:;"-->
+                                <a title="删除" th:href="${'/deleteColumn?name='+column.columnName}">
                                     <i class="layui-icon">&#xe640;</i></a>
-                                <a title="通过审核" th:href="${'/approveNews?id='+news.getNewsId()}">
-                                    <i class="layui-icon">&#xe605;</i></a>
-                                <a title="未通过审核" th:href="${'/disapproveNews?id='+news.getNewsId()}">
-                                    <i class="layui-icon">&#x1006;</i></a>
                             </td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <!--<div class="layui-card-body ">
-                    <div class="page">
-                        <div>
-                            <a class="prev" href="">&lt;&lt;</a>
-                            <a class="num" href="">1</a>
-                            <span class="current">2</span>
-                            <a class="num" href="">3</a>
-                            <a class="num" href="">489</a>
-                            <a class="next" href="">&gt;&gt;</a></div>
-                    </div>
-                </div>-->
             </div>
         </div>
     </div>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.news.mapper.EmployeeMapper">
+    <select id="findAllEmployee" resultType="com.example.news.dao.Employee">
+        select * from emp
+    </select>
+
+    <select id="findEmployeeByName" resultType="com.example.news.dao.Employee">
+        select * from emp where emp_name like '%${empName}%'
+    </select>
+
+    <delete id="deleteEmployee">
+        delete from emp where emp_id = #{empId}
+    </delete>
+
+    <insert id="addEmployee" parameterType="com.example.news.dao.Employee">
+        insert into emp ( emp_id, emp_name, emp_password, emp_gender, emp_phone, emp_apartment, emp_role)
+        values (#{empId},#{empName},#{empPassword},#{empGender},#{empPhone},#{empApartment},#{empRole})
+    </insert>
+</mapper>

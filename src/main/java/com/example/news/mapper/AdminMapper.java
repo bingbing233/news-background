@@ -17,6 +17,8 @@ public interface AdminMapper {
 
     Admin findAdminById(int id);
 
+    List<Admin> findAdminFuzzyByName(String name);
+
     void deleteAdmin(String name);
 
     List<Admin> findAllAdmin();

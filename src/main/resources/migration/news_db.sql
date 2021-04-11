@@ -4,12 +4,10 @@ create table admin
     admin_name     varchar(50) null,
     admin_contact  varchar(50) null,
     admin_password varchar(50) null,
+    admin_type     varchar(50) null,
     constraint admin_admin_id_uindex
         unique (admin_id)
 );
-
-alter table admin
-    add primary key (admin_id);
 
 create table apartment
 (
@@ -26,30 +24,26 @@ create table chars
     char_permission varchar(50)   null
 );
 
-create table colume
+create table `column`
 (
-    colume_id   int auto_increment,
-    colume_name varchar(50) not null,
-    constraint colume_colume_id_uindex
-        unique (colume_id)
+    column_id   int auto_increment,
+    column_name varchar(100) null,
+    constraint column_column_id_uindex
+        unique (column_id)
 );
 
-alter table `column`
-    add primary key (column_id);
-
-create table employee
+create table emp
 (
-    emp_id       int default 0 not null
+    emp_id        int auto_increment
         primary key,
-    emp_login    varchar(50)   not null,
-    emp_name     varchar(50)   null,
-    emp_gender   varchar(50)   null,
-    emp_password varchar(50)   not null,
-    contact      varchar(150)  null,
-    apartment_id int default 0 not null,
-    char_id      int default 0 not null,
-    leave_or_not int default 0 not null
-);
+    emp_name      varchar(50) null,
+    emp_password  varchar(50) null,
+    emp_gender    varchar(10) null,
+    emp_phone     varchar(50) null,
+    emp_apartment varchar(50) null,
+    emp_role      varchar(50) null
+)
+    comment '员工表';
 
 create table news
 (
@@ -62,7 +56,9 @@ create table news
     news_column       varchar(20)    null,
     news_creator      varchar(20)    not null,
     news_public_state varchar(20)    not null,
-    news_pic_url      varchar(200)   null
+    news_pic_url      varchar(200)   null,
+    constraint news_news_id_uindex
+        unique (news_id)
 );
 
 create table news_content
@@ -78,10 +74,12 @@ create table news_content
 
 create table permission
 (
-    permission_id   int default 0 not null
-        primary key,
+    permission_id   int auto_increment,
     permission_name varchar(50)   null,
-    permission_des  varchar(2000) null
+    permission_des  varchar(2000) null,
+    permission_rule varchar(100)  null,
+    constraint permission_permission_id_uindex
+        unique (permission_id)
 );
 
 create table permission_authority
